@@ -3,20 +3,23 @@ Use WiseTREND OCR cloud from Python.
 
 Example:
 
-import wisetrend
-import time
+    import wisetrend
+    import time
 
-joburl = wisetrend.submit("API-KEY", "http://url/to/the/document")
-while True:
-    time.sleep(5)
-    status, downloads = wisetrend.getstatus(joburl)
-    print status
-    if status == "Finished":
-        for outputtype, url in downloads.iteritems():
-            print outputtype, url
-        break
+    joburl = wisetrend.submit("API-KEY", "http://url/to/the/document")
+    while True:
+        time.sleep(5)
+        status, downloads = wisetrend.getstatus(joburl)
+        print status
+        if status == "Finished":
+            for outputtype, url in downloads.iteritems():
+                print outputtype, url
+            break
 
+Copyright (c) 2011 Bernt R. Brenna
+Licensed under the MIT license: http://www.opensource.org/licenses/mit-license.php
 """
+
 import urllib2
 from xml.etree import ElementTree as E
 
